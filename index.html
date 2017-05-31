@@ -101,14 +101,30 @@
   </div>
 
   <script>
-  // select the element containing the count
+function updateCounters() {
+  // Total counters
 var totalCount = document.getElementById('total-count');
-
-// count the number of todo's by their class name
 var totalTodos = document.getElementsByClassName("todo").length;
-
-// update the HTML inside the counter element
 totalCount.innerHTML = totalTodos;
+  // Done counters
+var completedCount = document.getElementById('completed-count');
+var completedTodos = document.getElementsByClassName('completed').length;
+completedCount.innerHTML = completedTodos;
+  // Uncompleted counters
+var uncompletedCount = getElementById('todo-count');
+var uncompletedTodos = totalTodos - completedTodos;
+uncompletedCount.innerHTML = uncompletedTodos;
+}
+function toggleDone () {
+  var checkbox = this;
+  if (checkbox.checked) {
+    checkbox.parentElement.className = "todo completed";
+  } else {
+    checkbox.parentElement.className = "todo";
+  }
+}
+
+updateCounters();
   </script>
 
 </body>
